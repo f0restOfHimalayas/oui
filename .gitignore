@@ -38,3 +38,8 @@ package
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+open-api-gui
+open-api-gui-breebsd-386
+open-api-gui-linux-arm64
+open-api-gui-linux-arm
