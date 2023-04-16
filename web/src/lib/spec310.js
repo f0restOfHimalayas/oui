@@ -16,18 +16,23 @@ let openApi310 = {
         "license" : {
             "name" : "",
         }
-    }
+    },
+    "servers" : [{
+        url : "",
+        description : ""
+    }]
 }
 
 const OpenAPIStore = writable(openApi310);
 
 let ToYaml = function ()
 {
-    console.log(YAML.dump(openApi310))
+    console.log(YAML.dump(openApi310));
+
     return YAML.dump(openApi310, {
-        indent: 4,
-        forceQuotes : false,
-        quotingType : "\""
+        indent: 2,
+        forceQuotes : true,
+        quotingType : "'"
     })
 }
 

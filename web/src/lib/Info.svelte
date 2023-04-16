@@ -1,6 +1,7 @@
 <script>
     import Example from "./Example.svelte";
     import {openApi310, OpenAPIStore} from "./spec310.js";
+    import PageInformation from "./PageInformation.svelte";
 
     const example = `    title: Sample Pet Store App
     summary: A pet store manager.
@@ -17,11 +18,10 @@
 </script>
 
 <div class="card">
-    <h5>General Information</h5>
-    <section class="left-align font-monospace">
-        Provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in
-        editing or documentation generation tools for convenience.
-    </section>
+    <PageInformation heading="General Information"
+                     summary="Provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in
+        editing or documentation generation tools for convenience."
+    />
     <section class="m-3">
         <table class="table table-borderless">
             <tr class="row">

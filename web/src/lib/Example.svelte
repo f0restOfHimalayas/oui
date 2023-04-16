@@ -4,6 +4,13 @@
 
 
 <section class="left-align alert alert-dark">
+    <p>
+        Reference: <a href="https://swagger.io/specification/"
+                      target="_blank"
+                      rel="external"
+                      class="link-body-emphasis link-underline">
+        https://swagger.io/specification/</a>
+    </p>
     <span>Example</span>
     <pre>{example}</pre>
 </section>
