@@ -1,11 +1,7 @@
 <script>
   import Root from './lib/Root.svelte'
-  let preview = "preview";
-  function callbackFunction(event) {
-      console.log(event)
-      preview = event.detail;
-  }
-
+  import Preview from "./lib/Preview.svelte";
+  import Navigation from "./lib/Navigation.svelte";
 </script>
 
 <main>
@@ -24,11 +20,13 @@
         </li>
     </ul>
 
-    <section class="card">
-        <Root on:notify="{callbackFunction}" />
+    <section class="card font-monospace">
+        <Root />
     </section>
-
-    <section class="preview card m-3">
-        {preview}
+    <section>
+        <Navigation />
+    </section>
+    <section>
+        <Preview />
     </section>
 </main>
