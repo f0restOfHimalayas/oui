@@ -52,7 +52,8 @@ Example 2: Using variables
         <PageInformation heading="Servers"
                          summary="An array of Server Objects, which provide connectivity information to a target server.
                   If the servers property is not provided, or is an empty array, the default value would be a
-                  Server Object with a url value of /. Note: As if now `variables` are not supported."/>
+                  Server Object with a url value of /. Note: As of now `variables` are not supported."/>
+        <Example example="{example}" />
 
         {#each openApi310.servers as {id, url, description}, i}
             <section id="servers-{i}" class="card m-3">
@@ -102,6 +103,4 @@ Example 2: Using variables
     <section class="m-3">
         <button class="btn btn-dark" on:click={addNewServer}>Add new server</button>
     </section>
-
-    <Example example="{example}" />
 </section>

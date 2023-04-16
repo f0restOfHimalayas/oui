@@ -4,12 +4,9 @@ help:
 	echo "help: available targets: clean, build, run, pack, all"
 
 clean:
-	if [ -f open-api-gui ]; then
-		rm open-api-gui
-	fi
+	rm open-api-gui
 
 build:
-	$(MAKE) clean
 	go build -ldflags="-s -w" -o open-api-gui main.go mime.go
 
 run:

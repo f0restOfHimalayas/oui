@@ -22,6 +22,9 @@
                      summary="Provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in
         editing or documentation generation tools for convenience."
     />
+    <section>
+        <Example example="{example}"/>
+    </section>
     <section class="m-3">
         <table class="table table-borderless">
             <tr class="row">
@@ -176,8 +179,4 @@
             </tr>
         </table>
     </section>
-    <section>
-        <Example example="{example}"/>
-    </section>
-
 </div>

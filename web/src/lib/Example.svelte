@@ -3,7 +3,7 @@
 </script>
 
 
-<section class="left-align alert alert-dark">
+<section class="m-3 left-align alert alert-dark">
     <p>
         Reference: <a href="https://swagger.io/specification/"
                       target="_blank"
