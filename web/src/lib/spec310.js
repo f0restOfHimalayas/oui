@@ -1,43 +1,43 @@
 import * as YAML from "js-yaml";
-import { writable } from 'svelte/store';
+import {writable} from 'svelte/store';
 
-let openApi310 = {
-    "openapi" : "3.1.0",
-    "info" : {
-        "title" : "",
-        "version" : "1.0.0",
-        "summary" : "",
-        "description" : "",
-        "termsOfService" : "",
-        "contact" : {
-            "name" : "",
-            "email" : ""
+let OpenApiModel = {
+    "openapi": "3.1.0",
+    "info": {
+        "title": "",
+        "version": "1.0.0",
+        "summary": "",
+        "description": "",
+        "termsOfService": "",
+        "contact": {
+            "name": "",
+            "email": ""
         },
-        "license" : {
-            "name" : "",
+        "license": {
+            "name": "",
         }
     },
-    "servers" : [{
-        url : "",
-        description : ""
-    }]
+    "servers": [{
+        url: "",
+        description: ""
+    }],
+    "paths": {}
 }
 
-const OpenAPIStore = writable(openApi310);
+const OpenAPIStore = writable(OpenApiModel);
 
-let ToYaml = function ()
-{
-    console.log(YAML.dump(openApi310));
+const ToYaml = (updatedOpenApiObj) => {
+    console.log(YAML.dump(updatedOpenApiObj));
 
-    return YAML.dump(openApi310, {
+    return YAML.dump(updatedOpenApiObj, {
         indent: 2,
-        forceQuotes : true,
-        quotingType : "'"
+        forceQuotes: true,
+        quotingType: "'"
     })
 }
 
 export {
     OpenAPIStore,
     ToYaml,
-    openApi310
+    OpenApiModel
 }

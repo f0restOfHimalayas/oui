@@ -1,5 +1,5 @@
 <script>
-    import {openApi310, OpenAPIStore} from "./spec310.js";
+    import {OpenApiModel, OpenAPIStore} from "./spec310.js";
 </script>
 
 <h5>
@@ -41,8 +41,8 @@
                 <p>
                     <select id="version"
                             class="form-select"
-                            bind:value={openApi310.openapi}
-                            on:change={ () => { OpenAPIStore.set(openApi310) } }
+                            bind:value={OpenApiModel.openapi}
+                            on:change={ () => { OpenAPIStore.set(OpenApiModel) } }
                     >
                         <option value="3.1.0">
                             3.1.0 (latest)

@@ -1,10 +1,10 @@
 <script>
     import PageInformation from "./PageInformation.svelte";
-    import {openApi310, OpenAPIStore} from "./spec310.js";
+    import {OpenApiModel, OpenAPIStore} from "./spec310.js";
     import Example from "./Example.svelte";
 
     let addNewServer = function () {
-        openApi310.servers = [...openApi310.servers, {
+        OpenApiModel.servers = [...OpenApiModel.servers, {
             url: "",
             description: ""
         }];
@@ -12,9 +12,9 @@
 
     let remove = (e) => {
         let index = e.target.attributes["data-index"];
-        openApi310.servers.splice(index, 1);
-        openApi310.servers = [...openApi310.servers];
-        OpenAPIStore.set(openApi310)
+        OpenApiModel.servers.splice(index, 1);
+        OpenApiModel.servers = [...OpenApiModel.servers];
+        OpenAPIStore.set(OpenApiModel)
     }
 
     const example = `
@@ -55,7 +55,7 @@ Example 2: Using variables
                   Server Object with a url value of /. Note: As of now `variables` are not supported."/>
         <Example example="{example}" />
 
-        {#each openApi310.servers as {id, url, description}, i}
+        {#each OpenApiModel.servers as {id, url, description}, i}
             <section id="servers-{i}" class="card m-3">
                 <div class="row">
                     <span class="badge badge bg-success col-1">{i + 1}.</span>
@@ -75,8 +75,8 @@ Example 2: Using variables
                             <input type="url"
                                    id="server-url-{i}"
                                    class="form-control"
-                                   bind:value={openApi310.servers[i]["url"]}
-                                   on:change={ () => { OpenAPIStore.set(openApi310) }}
+                                   bind:value={OpenApiModel.servers[i]["url"]}
+                                   on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                                    placeholder="REQUIRED. A URL to the target host. This URL supports Server Variables and MAY be relative,
                        to indicate that the host location is relative to the location where the OpenAPI document is being served.
                        Variable substitutions will be made when a variable is named in curly brackets.">
@@ -90,8 +90,8 @@ Example 2: Using variables
                                    required
                                    class="form-control"
                                    placeholder="An optional string describing the host designated by the URL. CommonMark syntax MAY be used for rich text representation."
-                                   bind:value={openApi310.servers[i]["description"]}
-                                   on:change={ () => { OpenAPIStore.set(openApi310) }}
+                                   bind:value={OpenApiModel.servers[i]["description"]}
+                                   on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                             >
                         </td>
                     </tr>

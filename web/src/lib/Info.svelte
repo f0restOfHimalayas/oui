@@ -1,6 +1,6 @@
 <script>
     import Example from "./Example.svelte";
-    import {openApi310, OpenAPIStore} from "./spec310.js";
+    import {OpenApiModel, OpenAPIStore} from "./spec310.js";
     import PageInformation from "./PageInformation.svelte";
 
     const example = `    title: Sample Pet Store App
@@ -35,8 +35,8 @@
                     <input type="text"
                            id="api-version"
                            class="form-control"
-                           bind:value={openApi310.info["version"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["version"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                            placeholder="REQUIRED. The version of this Open API document. eg: 1.0.0">
                 </td>
             </tr>
@@ -48,8 +48,8 @@
                            required
                            class="form-control"
                            placeholder="REQUIRED. The title of the API."
-                           bind:value={openApi310.info["title"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["title"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -60,8 +60,8 @@
                            id="summary"
                            class="form-control"
                            placeholder="A short summary of the API."
-                           bind:value={openApi310.info["summary"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["summary"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -74,8 +74,8 @@
                            id="description"
                            class="form-control"
                            placeholder="A description of the API. CommonMark syntax MAY be used for rich text representation."
-                           bind:value={openApi310.info["description"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["description"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -88,8 +88,8 @@
                            id="termsOfService"
                            class="form-control"
                            placeholder="A URL to the Terms of Service for the API. This MUST be in the form of a URL."
-                           bind:value={openApi310.info["termsOfService"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["termsOfService"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -102,8 +102,8 @@
                            id="contact-name"
                            class="form-control"
                            placeholder="The identifying name of the contact person/organization."
-                           bind:value={openApi310.info["contact"]["name"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["contact"]["name"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -116,8 +116,8 @@
                            id="contact-url"
                            class="form-control"
                            placeholder="The URL pointing to the contact information. This MUST be in the form of a URL."
-                           bind:value={openApi310.info["contact"]["url"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["contact"]["url"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -130,8 +130,8 @@
                            id="contact-email"
                            class="form-control"
                            placeholder="The email address of the contact person/organization. This MUST be in the form of an email address."
-                           bind:value={openApi310.info["contact"]["email"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["contact"]["email"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -144,8 +144,8 @@
                            id="license-name"
                            class="form-control"
                            placeholder="REQUIRED. The license name used for the API."
-                           bind:value={openApi310.info["license"]["name"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["license"]["name"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -158,8 +158,8 @@
                            id="license-identifier"
                            class="form-control"
                            placeholder="An SPDX license expression for the API. The identifier field is mutually exclusive of the url field."
-                           bind:value={openApi310.info["license"]["identifier"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["license"]["identifier"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>
@@ -172,8 +172,8 @@
                            id="license-url"
                            class="form-control"
                            placeholder="A URL to the license used for the API. This MUST be in the form of a URL. The url field is mutually exclusive of the identifier field."
-                           bind:value={openApi310.info["license"]["url"]}
-                           on:change={ () => { OpenAPIStore.set(openApi310) }}
+                           bind:value={OpenApiModel.info["license"]["url"]}
+                           on:change={ () => { OpenAPIStore.set(OpenApiModel) }}
                     >
                 </td>
             </tr>

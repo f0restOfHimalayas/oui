@@ -3,12 +3,22 @@
     import Info from "./Info.svelte";
     import Servers from "./Servers.svelte";
     import Paths from "./Paths.svelte";
+    import {PageStore} from "./PageMonitor.js";
+
+    let page = 1;
+    $: {
+        page = $PageStore;
+    }
+
 </script>
 
-<Version />
-
-<Info />
-
-<Servers />
-
-<Paths />
+{#if page === 1}
+    <Version/>
+{:else if page === 2}
+    <Info/>
+{:else if page === 3}
+    <Servers/>
+{:else if page === 4}
+    <Paths/>
+{:else }
+{/if}
