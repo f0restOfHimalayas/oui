@@ -2,35 +2,37 @@
     import {CurrentPage, PageStore} from "./PageMonitor.js";
     import {onMount} from "svelte";
 
-    const maxPages = 4;
+    const minPage = 0;
+    const maxPages = 3
     let prevPage = () => {
-        if (CurrentPage <= 1) {
-            disableElement('prev')
-        } else {
-            PageStore.set(CurrentPage - 1)
-            enableElement('next')
-        }
+        PageStore.set(CurrentPage - 1)
     }
 
     let nextPage = () => {
-        if (CurrentPage >= maxPages) {
-            disableElement('next')
-        } else {
-            PageStore.set(CurrentPage + 1)
-            enableElement('prev')
-        }
+        PageStore.set(CurrentPage + 1)
     }
 
     const disableElement = (id) => {
-        document.getElementById(id).setAttribute('disabled', 'disabled');
+        document.getElementById(id)?.setAttribute('disabled', 'disabled');
     }
 
     const enableElement = (id) => {
-        document.getElementById(id).removeAttribute('disabled');
+        document.getElementById(id)?.removeAttribute('disabled');
     }
 
+    PageStore.subscribe((page) => {
+        if (page >= maxPages) {
+            disableElement('next')
+        } else if (page <= minPage) {
+            disableElement('prev')
+        } else {
+            enableElement('prev')
+            enableElement('next')
+        }
+    });
+
     onMount(() => {
-        if (CurrentPage === 1) {
+        if (CurrentPage === minPage) {
             disableElement('prev')
             enableElement('next')
         }
@@ -39,7 +41,8 @@
             disableElement('next')
             enableElement('prev')
         }
-    })
+    });
+
 </script>
 
 <main class="m-5">

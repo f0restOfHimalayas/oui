@@ -32,7 +32,7 @@
         OpenAPIStore.set(OpenApiModel)
     }
 
-    const example = `    /pets:
+    const example = `/pets:
       get:
         description: Returns all pets from the system that the user has access to
         responses:
