@@ -7,9 +7,11 @@ clean:
 	rm open-api-gui
 
 build:
+	npm run --prefix web/ build
 	go build -ldflags="-s -w" -o open-api-gui main.go mime.go
 
 run:
+	npm run --prefix web/ build
 	go run -ldflags="-s -w" -o open-api-gui main.go mime.go
 
 pack:

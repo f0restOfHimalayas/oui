@@ -2,6 +2,7 @@ package main
 
 import (
 	"embed"
+	"flag"
 	"fmt"
 	"net/http"
 	"strings"
@@ -13,7 +14,10 @@ var f embed.FS
 var rootFolder = "web/dist"
 
 func main() {
-	fmt.Println("starting server on :5001 ....")
+	port := flag.Int("port", 5001, "port number of the server to start on. default: 5001")
+	flag.Parse()
+
+	fmt.Printf("starting server on :%d ....\n", *port)
 
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		path := request.URL.Path
@@ -49,7 +53,7 @@ func main() {
 	})
 
 	server := http.Server{
-		Addr: ":5001",
+		Addr: fmt.Sprintf(":%d", *port),
 	}
 
 	err := server.ListenAndServe()
