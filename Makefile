@@ -13,6 +13,7 @@ run:
 	go run -ldflags="-s -w" -o open-api-gui main.go mime.go
 
 pack:
+	npm run --prefix web/ build
 	$(MAKE) build
 	upx open-api-gui
 
