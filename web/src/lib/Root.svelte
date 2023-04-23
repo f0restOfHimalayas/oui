@@ -12,13 +12,13 @@
 
 </script>
 
-{#if page === 1}
+{#if page === 0}
     <Version/>
-{:else if page === 2}
+{:else if page === 1}
     <Info/>
-{:else if page === 3}
+{:else if page === 2}
     <Servers/>
-{:else if page === 4}
+{:else if page === 3}
     <Paths/>
 {:else }
 {/if}

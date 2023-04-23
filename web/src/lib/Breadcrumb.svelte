@@ -1,5 +1,5 @@
 <script>
-    import {CurrentPage, PageStore} from "./PageMonitor.js";
+    import {PageStore} from "./PageMonitor.js";
 
     PageStore.subscribe((page) => {
         let elements = document.querySelectorAll('a.nav-link');
@@ -27,13 +27,12 @@
     }, {
         id: 3,
         active: false,
-        text: "Links",
+        text: "Paths",
     }];
 
     const activateTab = (e) => {
         const element = e.target;
         let clickedIndex = parseInt(element.getAttribute('data-index'));
-        console.log(clickedIndex)
         PageStore.set(clickedIndex);
     }
 

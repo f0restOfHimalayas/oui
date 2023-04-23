@@ -3,11 +3,13 @@
     import {OpenApiModel, OpenAPIStore} from "./spec310.js";
     import Example from "./Example.svelte";
 
+    const methods = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace']
+
     let addNewPath = function (e) {
         let pathTextBox = e.target;
         let path = pathTextBox.value;
         if (OpenApiModel.paths[path] === undefined || OpenApiModel.paths[path] === null) {
-           OpenApiModel.paths[path] = {}
+            OpenApiModel.paths[path] = {}
         }
         for (const currentPath in OpenApiModel.paths) {
         }
@@ -19,13 +21,13 @@
         let parents = [];
         for (const parentsIdentifiersKey in parentsIdentifiers) {
             let currVal = htmlElement.getAttribute('id')
-            htmlElement.setAttribute('id', `${currVal}-${value}` )
+            htmlElement.setAttribute('id', `${currVal}-${value}`)
         }
 
         return parents;
     }
 
-    let remove = (e) => {
+    let removeFn = (e) => {
         let index = e.target.attributes["data-index"];
         OpenApiModel.paths.splice(index, 1);
         OpenApiModel.paths = [...OpenApiModel.paths];
@@ -47,7 +49,7 @@
 </script>
 
 <section>
-    <div class="card m-3">
+    <div class="m-3">
         <PageInformation heading="Paths"
                          summary="The available paths and operations for the API.
                          Holds the relative paths to the individual endpoints and their operations. The path is appended
@@ -62,7 +64,7 @@
                 <span class="col-9"></span>
                 <span id='close-me'
                       class='close- btn btn-danger badge badge col-1'
-                      on:click={remove}
+                      on:click={removeFn}
                       data-index=''
                 >Remove</span>
             </div>
@@ -83,6 +85,44 @@
                                templated counterparts. Templated paths with the same hierarchy but different templated
                                names MUST NOT exist as they are identical. In case of ambiguous matching, it's up to the
                                tooling to decide which one to use.">
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>
+                        Summary
+                    </td>
+                    <td>
+                        <input type="text"
+                               id="summary"
+                               class="form-control"
+                               placeholder="Summary of the endpoint"
+                        >
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        <input type="text"
+                               id="description"
+                               class="form-control"
+                               placeholder="Description of the endpoint"
+                        >
+                    </td>
+                </tr>
+                <tr class="row">
+                    <td>
+                        Operation
+                    </td>
+                    <td>
+                        <select class="form-control">
+                            {#each methods as method}
+                                <option id="{method}">
+                                    {method}
+                                </option>
+                            {/each}
+                        </select>
                     </td>
                 </tr>
             </table>

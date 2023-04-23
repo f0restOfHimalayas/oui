@@ -1,5 +1,7 @@
 <script>
     import {OpenApiModel, OpenAPIStore} from "./spec310.js";
+
+    const versions = ["3.0.3", "3.0.1", "3.0.0"]
 </script>
 
 <h5>
@@ -44,18 +46,11 @@
                             bind:value={OpenApiModel.openapi}
                             on:change={ () => { OpenAPIStore.set(OpenApiModel) } }
                     >
-                        <option value="3.1.0">
-                            3.1.0 (latest)
-                        </option>
-                        <option value="3.0.3">
-                            3.0.3
-                        </option>
-                        <option value="3.0.1">
-                            3.0.1
-                        </option>
-                        <option value="3.0.0">
-                            3.0.0
-                        </option>
+                        {#each versions as version}
+                            <option value="{version}">
+                                {version}
+                            </option>
+                        {/each}
                     </select>
                 </p>
             </td>

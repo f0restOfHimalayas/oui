@@ -2,7 +2,7 @@ import * as YAML from "js-yaml";
 import {writable} from 'svelte/store';
 
 let OpenApiModel = {
-    "openapi": "3.1.0",
+    "openapi": "3.0.3",
     "info": {
         "title": "",
         "version": "1.0.0",
@@ -19,7 +19,8 @@ let OpenApiModel = {
     },
     "servers": [{
         url: "",
-        description: ""
+        description: "",
+        variables: {}
     }],
     "paths": {}
 }

@@ -17,7 +17,7 @@
     version: 1.0.1`;
 </script>
 
-<div class="card">
+<div class="m3">
     <PageInformation heading="General Information"
                      summary="Provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in
         editing or documentation generation tools for convenience."
