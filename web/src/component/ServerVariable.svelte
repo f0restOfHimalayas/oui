@@ -19,9 +19,11 @@
     }
 
     const updateModel = () => {
-        Model[key].enum = enumValue;
+        Model[key].enum = []
+        Model[key].enum = enumValue.split(',').map(t => t.trim());
         Model[key].default = defaultValue;
         Model[key].description = descriptionValue;
+        OpenApiModel.servers = [...OpenApiModel.servers]
         OpenAPIStore.set(OpenApiModel)
     }
 </script>
@@ -54,17 +56,6 @@
             </td>
         </tr>
         <tr class="row">
-            <td>Enum</td>
-            <td>
-                <input type="text"
-                       name="enum"
-                       class="form-control"
-                       bind:value={enumValue}
-                       on:change={updateModel}
-                       placeholder="An enumeration of string values to be used if the substitution options are from a limited set. The array MUST NOT be empty."/>
-            </td>
-        </tr>
-        <tr class="row">
             <td>
                 Default*
             <td>
@@ -75,6 +66,17 @@
                        bind:value={defaultValue}
                        on:change={updateModel}
                        placeholder="The default value to use for substitution"/>
+            </td>
+        </tr>
+        <tr class="row">
+            <td>Enum (enter in `,` separated values. eg: 8443, 443)</td>
+            <td>
+                <input type="text"
+                       name="enum"
+                       class="form-control"
+                       bind:value={enumValue}
+                       on:change={updateModel}
+                       placeholder="An enumeration of string values to be used if the substitution options are from a limited set. The array MUST NOT be empty."/>
             </td>
         </tr>
         <tr class="row">
