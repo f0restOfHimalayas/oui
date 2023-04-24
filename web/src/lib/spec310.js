@@ -21,8 +21,7 @@ let OpenApiModel = {
         url: "",
         description: "",
         variables: {}
-    }],
-    "paths": {}
+    }]
 }
 
 const OpenAPIStore = writable(OpenApiModel);
